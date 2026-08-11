@@ -6,7 +6,8 @@ body:
   - type: markdown
     attributes:
       value: |
-        Search [existing issues](https://github.com/zeddotes/code-enhance/issues) before opening a new one.
+        Search [existing issues](https://github.com/zeddotes/zeddotes-enhanced-code-block/issues) before opening a new one.
+
   - type: textarea
     id: summary
     attributes:
@@ -52,7 +53,8 @@ body:
   - type: input
     id: plugin-version
     attributes:
-      label: Code Enhance version
+      label: Zeddotes Enhanced Code Block version
+
       placeholder: "1.0.0"
   - type: textarea
     id: extras

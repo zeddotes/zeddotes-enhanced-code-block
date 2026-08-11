@@ -1,23 +1,25 @@
 {
-	"name": "code-enhance",
+	"name": "zeddotes-enhanced-code-block",
 	"version": "1.0.0",
 	"description": "Extends the core Code block with language selection and a copy button.",
 	"author": "Zain Syed <https://github.com/zeddotes>",
 	"license": "GPL-2.0-or-later",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/zeddotes/code-enhance.git"
+		"url": "git+https://github.com/zeddotes/zeddotes-enhanced-code-block.git"
 	},
 	"bugs": {
-		"url": "https://github.com/zeddotes/code-enhance/issues"
+		"url": "https://github.com/zeddotes/zeddotes-enhanced-code-block/issues"
 	},
-	"homepage": "https://github.com/zeddotes/code-enhance#readme",
+	"homepage": "https://github.com/zeddotes/zeddotes-enhanced-code-block#readme",
 	"main": "build/index.js",
 	"scripts": {
 		"build": "wp-scripts build",
 		"start": "wp-scripts start",
 		"packages-update": "wp-scripts packages-update",
-		"package": "bash bin/package-plugin.sh"
+		"package": "bash bin/package-plugin.sh",
+		"deploy:svn": "bash bin/deploy-svn.sh",
+		"release": "npm run package && npm run deploy:svn"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^30.0.0"

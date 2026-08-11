@@ -6,7 +6,8 @@ body:
   - type: markdown
     attributes:
       value: |
-        Search [existing issues](https://github.com/zeddotes/code-enhance/issues) before opening a new one.
+        Search [existing issues](https://github.com/zeddotes/zeddotes-enhanced-code-block/issues) before opening a new one.
+
   - type: textarea
     id: problem
     attributes:
@@ -18,7 +19,7 @@ body:
     id: proposal
     attributes:
       label: Proposal
-      description: How should Code Enhance behave?
+      description: How should Zeddotes Enhanced Code Block behave?
     validations:
       required: true
   - type: textarea

@@ -51,9 +51,9 @@ async function copyText( text ) {
 function enhanceCopyButton( blockEl ) {
 	if (
 		blockEl.previousElementSibling?.classList.contains(
-			'code-enhance-copy-bar'
+			'zeddotes-enhanced-code-block-copy-bar'
 		) ||
-		blockEl.nextElementSibling?.classList.contains( 'code-enhance-copy-bar' )
+		blockEl.nextElementSibling?.classList.contains( 'zeddotes-enhanced-code-block-copy-bar' )
 	) {
 		return;
 	}
@@ -73,11 +73,11 @@ function enhanceCopyButton( blockEl ) {
 		: 'right';
 
 	const bar = document.createElement( 'div' );
-	bar.className = `code-enhance-copy-bar copy-align-${ safeAlign }`;
+	bar.className = `zeddotes-enhanced-code-block-copy-bar copy-align-${ safeAlign }`;
 
 	const button = document.createElement( 'button' );
 	button.type = 'button';
-	button.className = 'code-enhance-copy';
+	button.className = 'zeddotes-enhanced-code-block-copy';
 	button.textContent = COPY_LABEL;
 	button.setAttribute( 'aria-label', COPY_LABEL );
 

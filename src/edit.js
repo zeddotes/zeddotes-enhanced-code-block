@@ -59,23 +59,23 @@ function countLines( value ) {
 function CopyBarPreview( { align } ) {
 	return (
 		<div
-			className={ `code-enhance-copy-bar copy-align-${ align }` }
+			className={ `zeddotes-enhanced-code-block-copy-bar copy-align-${ align }` }
 			aria-hidden="true"
 		>
-			<button type="button" className="code-enhance-copy" tabIndex={ -1 }>
-				{ __( 'Copy', 'code-enhance' ) }
+			<button type="button" className="zeddotes-enhanced-code-block-copy" tabIndex={ -1 }>
+				{ __( 'Copy', 'zeddotes-enhanced-code-block' ) }
 			</button>
 		</div>
 	);
 }
 
 /**
- * Code Enhance block edit UI (replaces core Code edit).
+ * Zeddotes Enhanced Code Block block edit UI (replaces core Code edit).
  *
  * @param {Object} props Block edit props.
  * @return {JSX.Element} Editor UI.
  */
-export default function CodeEnhanceEdit( props ) {
+export default function ZeddotesEnhancedCodeBlockEdit( props ) {
 	const { attributes, setAttributes } = props;
 	const {
 		content = '',
@@ -113,7 +113,7 @@ export default function CodeEnhanceEdit( props ) {
 
 	const blockProps = useBlockProps( {
 		className: [
-			'code-enhance-shell',
+			'zeddotes-enhanced-code-block-shell',
 			showCopy ? 'has-copy-button' : '',
 		]
 			.filter( Boolean )
@@ -199,13 +199,13 @@ export default function CodeEnhanceEdit( props ) {
 		<>
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'Code Enhance', 'code-enhance' ) }
+					title={ __( 'Zeddotes Enhanced Code Block', 'zeddotes-enhanced-code-block' ) }
 					initialOpen={ true }
 				>
 					<SelectControl
 						__next40pxDefaultSize
 						__nextHasNoMarginBottom
-						label={ __( 'Language', 'code-enhance' ) }
+						label={ __( 'Language', 'zeddotes-enhanced-code-block' ) }
 						value={ language }
 						options={ LANGUAGE_OPTIONS }
 						onChange={ ( value ) =>
@@ -214,7 +214,7 @@ export default function CodeEnhanceEdit( props ) {
 					/>
 					<ToggleControl
 						__nextHasNoMarginBottom
-						label={ __( 'Show line numbers', 'code-enhance' ) }
+						label={ __( 'Show line numbers', 'zeddotes-enhanced-code-block' ) }
 						checked={ !! showLineNumbers }
 						onChange={ ( value ) =>
 							setAttributes( { showLineNumbers: value } )
@@ -223,7 +223,7 @@ export default function CodeEnhanceEdit( props ) {
 					<SelectControl
 						__next40pxDefaultSize
 						__nextHasNoMarginBottom
-						label={ __( 'Tab size', 'code-enhance' ) }
+						label={ __( 'Tab size', 'zeddotes-enhanced-code-block' ) }
 						value={ String( resolvedTabSize ) }
 						options={ TAB_SIZE_OPTIONS }
 						onChange={ ( value ) =>
@@ -232,10 +232,10 @@ export default function CodeEnhanceEdit( props ) {
 					/>
 					<ToggleControl
 						__nextHasNoMarginBottom
-						label={ __( 'Indent with spaces', 'code-enhance' ) }
+						label={ __( 'Indent with spaces', 'zeddotes-enhanced-code-block' ) }
 						help={ __(
 							'When enabled, Tab inserts spaces instead of a tab character.',
-							'code-enhance'
+							'zeddotes-enhanced-code-block'
 						) }
 						checked={ !! indentWithSpaces }
 						onChange={ ( value ) =>
@@ -244,7 +244,7 @@ export default function CodeEnhanceEdit( props ) {
 					/>
 					<ToggleControl
 						__nextHasNoMarginBottom
-						label={ __( 'Show copy button', 'code-enhance' ) }
+						label={ __( 'Show copy button', 'zeddotes-enhanced-code-block' ) }
 						checked={ !! showCopy }
 						onChange={ ( value ) =>
 							setAttributes( { showCopy: value } )
@@ -257,7 +257,7 @@ export default function CodeEnhanceEdit( props ) {
 								__nextHasNoMarginBottom
 								label={ __(
 									'Copy button placement',
-									'code-enhance'
+									'zeddotes-enhanced-code-block'
 								) }
 								value={ placement }
 								options={ COPY_PLACEMENT_OPTIONS }
@@ -270,7 +270,7 @@ export default function CodeEnhanceEdit( props ) {
 								__nextHasNoMarginBottom
 								label={ __(
 									'Copy button alignment',
-									'code-enhance'
+									'zeddotes-enhanced-code-block'
 								) }
 								value={ align }
 								options={ COPY_ALIGN_OPTIONS }
@@ -286,7 +286,7 @@ export default function CodeEnhanceEdit( props ) {
 				{ showCopy && placement === 'before' && copyBar }
 				<div
 					className={ [
-						'code-enhance-editor',
+						'zeddotes-enhanced-code-block-editor',
 						languageClass,
 						showLineNumbers ? 'show-line-numbers' : '',
 					]
@@ -300,7 +300,7 @@ export default function CodeEnhanceEdit( props ) {
 					{ showLineNumbers && (
 						<div
 							ref={ gutterRef }
-							className="code-enhance-line-numbers"
+							className="zeddotes-enhanced-code-block-line-numbers"
 							aria-hidden="true"
 						>
 							{ lineNumberMarks }
@@ -308,7 +308,7 @@ export default function CodeEnhanceEdit( props ) {
 					) }
 					<pre
 						ref={ highlightRef }
-						className={ `code-enhance-highlight ${ languageClass }` }
+						className={ `zeddotes-enhanced-code-block-highlight ${ languageClass }` }
 						aria-hidden="true"
 					>
 						<code
@@ -318,14 +318,14 @@ export default function CodeEnhanceEdit( props ) {
 					</pre>
 					<textarea
 						ref={ textareaRef }
-						className="code-enhance-textarea"
+						className="zeddotes-enhanced-code-block-textarea"
 						value={ plainContent }
 						rows={ lineCount }
 						spellCheck={ false }
 						autoCapitalize="off"
 						autoComplete="off"
 						autoCorrect="off"
-						aria-label={ __( 'Code', 'code-enhance' ) }
+						aria-label={ __( 'Code', 'zeddotes-enhanced-code-block' ) }
 						onScroll={ syncScroll }
 						onKeyDown={ onKeyDown }
 						onChange={ ( event ) => {

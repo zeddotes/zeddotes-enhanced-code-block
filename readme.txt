@@ -1,4 +1,4 @@
-=== Code Enhance ===
+=== Zeddotes Enhanced Code Block ===
 Contributors: zeddotes
 Tags: code, syntax highlighting, prism, copy, gutenberg
 Requires at least: 6.0
@@ -12,7 +12,7 @@ Extends the core Code block with language selection (Prism.js) and a configurabl
 
 == Description ==
 
-Code Enhance adds inspector controls to the WordPress core Code block:
+Zeddotes Enhanced Code Block adds inspector controls to the WordPress core Code block:
 
 * Language select with Prism.js highlighting in the editor and on the frontend
 * Optional line numbers
@@ -24,10 +24,10 @@ No separate block type — authors keep using the standard Code block.
 
 == Installation ==
 
-1. Upload the plugin folder to `/wp-content/plugins/code-enhance` (or this directory name).
+1. Upload the plugin folder to `/wp-content/plugins/zeddotes-enhanced-code-block` (or this directory name).
 2. Run `npm install` and `npm run build` if `build/` is not present.
 3. Activate the plugin through the Plugins screen.
-4. Insert a Code block and open the **Code Enhance** panel in the sidebar.
+4. Insert a Code block and open the **Zeddotes Enhanced Code Block** panel in the sidebar.
 
 == Frequently Asked Questions ==
 

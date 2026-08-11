@@ -5,7 +5,7 @@ import { createHigherOrderComponent } from '@wordpress/compose';
 import { addFilter } from '@wordpress/hooks';
 import { cloneElement, Children, isValidElement } from '@wordpress/element';
 
-import CodeEnhanceEdit from './edit';
+import ZeddotesEnhancedCodeBlockEdit from './edit';
 import './style.scss';
 import './editor.scss';
 
@@ -22,13 +22,13 @@ function mergeClassNames( ...classNames ) {
 }
 
 /**
- * Register Code Enhance attributes on core/code.
+ * Register Zeddotes Enhanced Code Block attributes on core/code.
  *
  * @param {Object} settings Block settings.
  * @param {string} name     Block name.
  * @return {Object} Filtered settings.
  */
-function addCodeEnhanceAttributes( settings, name ) {
+function addZeddotesEnhancedCodeBlockAttributes( settings, name ) {
 	if ( name !== BLOCK_NAME ) {
 		return settings;
 	}
@@ -71,8 +71,8 @@ function addCodeEnhanceAttributes( settings, name ) {
 
 addFilter(
 	'blocks.registerBlockType',
-	'code-enhance/attributes',
-	addCodeEnhanceAttributes
+	'zeddotes-enhanced-code-block/attributes',
+	addZeddotesEnhancedCodeBlockAttributes
 );
 
 /**
@@ -83,7 +83,7 @@ addFilter(
  * @param {Object} attributes Block attributes.
  * @return {Object} Filtered props.
  */
-function addCodeEnhanceExtraProps( props, blockType, attributes ) {
+function addZeddotesEnhancedCodeBlockExtraProps( props, blockType, attributes ) {
 	if ( blockType.name !== BLOCK_NAME ) {
 		return props;
 	}
@@ -136,8 +136,8 @@ function addCodeEnhanceExtraProps( props, blockType, attributes ) {
 
 addFilter(
 	'blocks.getSaveContent.extraProps',
-	'code-enhance/extra-props',
-	addCodeEnhanceExtraProps
+	'zeddotes-enhanced-code-block/extra-props',
+	addZeddotesEnhancedCodeBlockExtraProps
 );
 
 /**
@@ -148,7 +148,7 @@ addFilter(
  * @param {Object} attributes Block attributes.
  * @return {Object} Filtered element.
  */
-function addCodeEnhanceSaveElement( element, blockType, attributes ) {
+function addZeddotesEnhancedCodeBlockSaveElement( element, blockType, attributes ) {
 	if ( blockType.name !== BLOCK_NAME || ! element || ! attributes?.language ) {
 		return element;
 	}
@@ -176,21 +176,25 @@ function addCodeEnhanceSaveElement( element, blockType, attributes ) {
 
 addFilter(
 	'blocks.getSaveElement',
-	'code-enhance/save-element',
-	addCodeEnhanceSaveElement
+	'zeddotes-enhanced-code-block/save-element',
+	addZeddotesEnhancedCodeBlockSaveElement
 );
 
 /**
- * Replace core Code edit with the Code Enhance editor.
+ * Replace core Code edit with the Zeddotes Enhanced Code Block editor.
  */
-const withCodeEnhanceEdit = createHigherOrderComponent( ( BlockEdit ) => {
+const withZeddotesEnhancedCodeBlockEdit = createHigherOrderComponent( ( BlockEdit ) => {
 	return ( props ) => {
 		if ( props.name !== BLOCK_NAME ) {
 			return <BlockEdit { ...props } />;
 		}
 
-		return <CodeEnhanceEdit { ...props } />;
+		return <ZeddotesEnhancedCodeBlockEdit { ...props } />;
 	};
-}, 'withCodeEnhanceEdit' );
+}, 'withZeddotesEnhancedCodeBlockEdit' );
 
-addFilter( 'editor.BlockEdit', 'code-enhance/edit', withCodeEnhanceEdit );
+addFilter(
+	'editor.BlockEdit',
+	'zeddotes-enhanced-code-block/edit',
+	withZeddotesEnhancedCodeBlockEdit
+);

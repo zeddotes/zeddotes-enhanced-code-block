@@ -49,8 +49,9 @@ jobs:
       - name: Upload package artifact
         uses: actions/upload-artifact@v4
         with:
-          name: code-enhance-zip
+          name: zeddotes-enhanced-code-block-zip
           path: |
-            dist/code-enhance-*.zip
-            dist/code-enhance.zip
+            dist/zeddotes-enhanced-code-block-*.zip
+            dist/zeddotes-enhanced-code-block.zip
+
           if-no-files-found: error

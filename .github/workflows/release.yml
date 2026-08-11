@@ -59,10 +59,22 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.meta.outputs.tag }}
-          name: Code Enhance ${{ steps.meta.outputs.tag }}
+          name: Zeddotes Enhanced Code Block ${{ steps.meta.outputs.tag }}
           generate_release_notes: true
           files: |
-            dist/code-enhance-${{ steps.meta.outputs.version }}.zip
-            dist/code-enhance.zip
+            dist/zeddotes-enhanced-code-block-${{ steps.meta.outputs.version }}.zip
+            dist/zeddotes-enhanced-code-block.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install Subversion
+        if: steps.meta.outputs.exists == 'false'
+        run: sudo apt-get update && sudo apt-get install -y subversion
+
+      - name: Deploy to WordPress.org SVN
+        if: steps.meta.outputs.exists == 'false'
+        run: npm run deploy:svn
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SVN_URL: ${{ secrets.SVN_URL || 'https://svn.wp-plugins.org/zeddotes-enhanced-code-block/' }}
